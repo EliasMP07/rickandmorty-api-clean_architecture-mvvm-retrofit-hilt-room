@@ -36,7 +36,6 @@ class CharacterViewModel @Inject constructor(
             }.let {
                 if (it is ResponseStatus.Success)
                     _listCharacter.value = it.data
-
                 _stateList.value = it
             }
         }

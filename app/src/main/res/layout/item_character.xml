@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/backgroundCardView"
         >
 
         <!-- Guidelines para diseño de los campos de texto-->
@@ -22,6 +23,12 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.4"/>
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3"/>
 
         <ImageView
             android:id="@+id/imageView"
@@ -44,10 +51,68 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            app:layout_constraintStart_toEndOf="@id/guideLineTextCampStart"
+           android:fontFamily="@font/bebasneue_regular"
            tools:text="384743"
+           android:textColor="@color/textColor"
+           android:textSize="24sp"
+           app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
-           app:layout_constraintBottom_toBottomOf="parent"
+           android:layout_marginTop="8dp"
            />
+        <TextView
+            android:id="@+id/tvSpecie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintEnd_toEndOf="@id/tvName"
+            tools:text="Human"
+
+            />
+
+        <ImageView
+            android:id="@+id/imgStatus"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toTopOf="@id/guideLine2"
+            android:layout_marginStart="8dp"
+            />
+
+
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvSpecie"
+            app:layout_constraintStart_toEndOf="@id/imgStatus"
+            tools:text="Vivo"
+            android:layout_marginStart="8dp"
+            />
+
+        <ImageView
+            android:id="@+id/imgGender"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/imgStatus"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvStatus"
+            app:layout_constraintStart_toEndOf="@id/imgStatus"
+            tools:text="Female"
+            android:layout_marginStart="8dp"
+            />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,6 @@ class getListRickAndMortyUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(): List<CharacterItem>{
-        return repository.getUrlCharacters()
+        return repository.getCharacterOffline()
     }
 }

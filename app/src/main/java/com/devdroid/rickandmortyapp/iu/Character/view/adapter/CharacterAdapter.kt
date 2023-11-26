@@ -1,16 +1,23 @@
 package com.devdroid.rickandmortyapp.iu.Character.view.adapter
 
+
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.devdroid.rickandmortyapp.R
 import com.devdroid.rickandmortyapp.databinding.ItemCharacterBinding
 import com.devdroid.rickandmortyapp.domain.model.CharacterItem
 
 class CharacterAdapter() : ListAdapter<CharacterItem, CharacterAdapter.CharacterViewHolder>(DiffCallBack){
+
 
 
     companion object DiffCallBack : DiffUtil.ItemCallback<CharacterItem>() {
@@ -35,12 +42,32 @@ class CharacterAdapter() : ListAdapter<CharacterItem, CharacterAdapter.Character
                 .into(binding.imageView)
 
             binding.apply {
-
-                binding.tvName.text = character.name
+                imgStatus.background = when (character.status) {
+                    "Alive" -> ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_live)
+                    "Dead" -> ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_dead)
+                    else -> {
+                        ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_unknown)
+                    }
+                }
+                tvName.text = character.name
+                tvSpecie.text = character.species
+                tvStatus.text = character.status
+                tvGender.text = character.gender
+                imgGender.background = when (character.gender) {
+                    "Female" -> ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_female)
+                    "Male" -> ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_male)
+                    else -> {
+                        ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_gender_unknown)
+                    }
+                }
 
             }
         }
+
+
     }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
         return CharacterViewHolder(
