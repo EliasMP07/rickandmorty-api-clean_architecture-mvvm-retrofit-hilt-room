@@ -10,6 +10,7 @@ data class Character(
     @SerializedName("image")val image: String?,
     @SerializedName("name")val name: String?,
     @SerializedName("species") val species: String?,
+    @SerializedName("origin") val origin: Origin?,
     @SerializedName("location") val location: Location?,
     @SerializedName("status") val status: String?,
     @SerializedName("type") val type: String?,

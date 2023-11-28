@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devdroid.rickandmortyapp.R
@@ -69,7 +70,9 @@ class CharacterFragment : Fragment() {
         binding.rvCharacter.apply {
 
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = CharacterAdapter()
+            adapter = CharacterAdapter(onItemSelected = {
+                Toast.makeText(context, "Hola Funciono", Toast.LENGTH_LONG).show()
+            })
         }
 
     }

@@ -2,12 +2,12 @@ package com.devdroid.rickandmortyapp.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.devdroid.rickandmortyapp.data.local.entities.CharacterAndLocation
+import com.devdroid.rickandmortyapp.data.local.entities.CharacterLocationaAndOrigin
 import com.devdroid.rickandmortyapp.data.local.entities.CharacterEntity
 import com.devdroid.rickandmortyapp.data.local.entities.LocationEntity
+import com.devdroid.rickandmortyapp.data.local.entities.OriginEntity
 
 @Dao
 interface CharacterDao {
@@ -16,7 +16,7 @@ interface CharacterDao {
     suspend fun countCharacter(): Int
 
     @Query("SELECT * FROM character_table")
-    suspend fun getAllCharacterAndLocation(): List<CharacterAndLocation>
+    suspend fun getAllCharacterAndLocation(): List<CharacterLocationaAndOrigin>
 
     @Insert
     suspend fun insertCharacter(character: CharacterEntity)
@@ -24,24 +24,31 @@ interface CharacterDao {
     @Insert
     suspend fun insertLocation(location: LocationEntity)
 
+    @Insert
+    suspend fun insertOrigin(originEntity: OriginEntity)
+
    /* @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllCharacter(characters : List<CharacterEntity>)
     */
     @Transaction
-    suspend fun insertCharactersAndLocation(characters: List<CharacterAndLocation>){
-        for (characterWithLocation in characters){
-            insertCharacter(characterWithLocation.character)
+    suspend fun insertCharactersLocationAndOrigin(characters: List<CharacterLocationaAndOrigin>){
+        for (characterLocationAndOrigin in characters){
+            insertCharacter(characterLocationAndOrigin.character)
 
-            characterWithLocation.location.id = characterWithLocation.character.id!!
-            insertLocation(characterWithLocation.location)
+            characterLocationAndOrigin.location.id = characterLocationAndOrigin.character.id!!
+            characterLocationAndOrigin.origin.id = characterLocationAndOrigin.character.id!!
+            insertOrigin(characterLocationAndOrigin.origin)
+            insertLocation(characterLocationAndOrigin.location)
         }
     }
 
     @Transaction
-    suspend fun insertCharacterAndLocation(character:CharacterEntity, location: LocationEntity){
+    suspend fun insertCharacterLocationAndOrigin(character:CharacterEntity, location: LocationEntity, origin: OriginEntity){
         insertCharacter(character)
         location.id = character.id!!
         insertLocation(location)
+        origin.id = character.id!!
+        insertOrigin(origin)
     }
 
 }

@@ -1,11 +1,8 @@
 package com.devdroid.rickandmortyapp.iu.Character.view.adapter
 
 
-import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -16,7 +13,9 @@ import com.devdroid.rickandmortyapp.R
 import com.devdroid.rickandmortyapp.databinding.ItemCharacterBinding
 import com.devdroid.rickandmortyapp.domain.model.CharacterItem
 
-class CharacterAdapter() : ListAdapter<CharacterItem, CharacterAdapter.CharacterViewHolder>(DiffCallBack){
+class CharacterAdapter(
+    private val onItemSelected:(CharacterItem) -> Unit
+) : ListAdapter<CharacterItem, CharacterAdapter.CharacterViewHolder>(DiffCallBack){
 
 
 
@@ -33,7 +32,9 @@ class CharacterAdapter() : ListAdapter<CharacterItem, CharacterAdapter.Character
 
     inner class CharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(character: CharacterItem) {
+        fun bind(character: CharacterItem, onItemSelected: (CharacterItem) -> Unit) {
+
+
 
             Glide.with(binding.imageView)
                 .load(character.image)
@@ -60,7 +61,13 @@ class CharacterAdapter() : ListAdapter<CharacterItem, CharacterAdapter.Character
                         ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_gender_unknown)
                     }
                 }
+                tvLocation.text = character.location?.name
 
+                tvOrigin.text = character.origin?.name
+
+                parent.setOnClickListener {
+                    onItemSelected(character)
+                }
             }
         }
 
@@ -81,7 +88,7 @@ class CharacterAdapter() : ListAdapter<CharacterItem, CharacterAdapter.Character
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bind(
-            getItem(position)
+            getItem(position), onItemSelected
         )
     }
 

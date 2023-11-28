@@ -1,8 +1,7 @@
 package com.devdroid.rickandmortyapp.data.repository
 
 import com.devdroid.rickandmortyapp.data.local.dao.CharacterDao
-import com.devdroid.rickandmortyapp.data.local.entities.CharacterAndLocation
-import com.devdroid.rickandmortyapp.data.local.entities.CharacterEntity
+import com.devdroid.rickandmortyapp.data.local.entities.CharacterLocationaAndOrigin
 import com.devdroid.rickandmortyapp.data.local.entities.toDatabase
 import com.devdroid.rickandmortyapp.data.remote.api.RickAndMortyApiClient
 import com.devdroid.rickandmortyapp.domain.model.CharacterItem
@@ -16,17 +15,18 @@ class RickAndMortyReposityImp @Inject constructor(
 ) : RickAndMortyRepository{
     override suspend fun getCharacterOffline(): List<CharacterItem> {
         if (dao.countCharacter() == 0){
-            val listCharactersAndLocation = mutableListOf<CharacterAndLocation>()
+            val listCharactersAndLocation = mutableListOf<CharacterLocationaAndOrigin>()
             api.obtenerCharacter().body()?.characters?.forEach {
                 listCharactersAndLocation.add(
-                    CharacterAndLocation(
+                    CharacterLocationaAndOrigin(
                         it.toDatabase(),
-                        it.location!!.toDatabase()
+                        it.location!!.toDatabase(),
+                        it.origin!!.toDatabase()
                     )
                 )
             }
 
-            dao.insertCharactersAndLocation(listCharactersAndLocation)
+            dao.insertCharactersLocationAndOrigin(listCharactersAndLocation)
 
         }
 
@@ -38,6 +38,7 @@ class RickAndMortyReposityImp @Inject constructor(
 
         dao.getAllCharacterAndLocation().forEach {
             val entity = it.character.toDomain()
+            entity.origin = it.origin.toDomain()
             entity.location = it.location.toDomain()
             listCharacters.add(entity)
         }

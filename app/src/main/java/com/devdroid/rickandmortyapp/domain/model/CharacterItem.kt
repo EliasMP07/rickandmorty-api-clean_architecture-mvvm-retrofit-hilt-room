@@ -4,16 +4,17 @@ import com.devdroid.rickandmortyapp.data.local.entities.CharacterEntity
 import com.devdroid.rickandmortyapp.data.remote.model.Character
 
 data class CharacterItem(
-    val created: String?,
-    val gender: String?,
-    val id: Int?,
-    val image: String?,
-    val name: String?,
-    val species: String?,
+    var created: String?,
+    var gender: String?,
+    var id: Int?,
+    var image: String?,
+    var name: String?,
+    var species: String?,
+    var origin: OriginItem? = OriginItem(),
     var location: LocationItem? = LocationItem(),
-    val status: String?,
-    val type: String?,
-    val url: String?,
+    var status: String?,
+    var type: String?,
+    var url: String?,
 
     )
 
@@ -24,6 +25,7 @@ fun Character.toDomain() = CharacterItem(
     image = image,
     name = name,
     species = species,
+    origin = origin!!.toDomain(),
     location = location!!.toDomain(),
     status = status,
     type = type,

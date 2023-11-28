@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="@dimen/cardViewHeigh"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -21,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.4"/>
+            app:layout_constraintGuide_percent="0.3"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideLine2"
@@ -87,8 +88,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvSpecie"
+            app:layout_constraintTop_toTopOf="@id/imgStatus"
             app:layout_constraintStart_toEndOf="@id/imgStatus"
+            app:layout_constraintBottom_toBottomOf="@id/imgStatus"
             tools:text="Vivo"
             android:layout_marginStart="8dp"
             />
@@ -107,9 +109,54 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvStatus"
-            app:layout_constraintStart_toEndOf="@id/imgStatus"
+            app:layout_constraintTop_toTopOf="@id/imgGender"
+            app:layout_constraintStart_toEndOf="@id/imgGender"
+            app:layout_constraintBottom_toBottomOf="@id/imgGender"
             tools:text="Female"
+            android:layout_marginStart="8dp"
+            />
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/imgGender"
+            android:src="@drawable/ic_location"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tvLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@id/imgLocation"
+            app:layout_constraintStart_toEndOf="@id/imgLocation"
+            app:layout_constraintBottom_toBottomOf="@id/imgLocation"
+            tools:text="Lova"
+            android:layout_marginStart="8dp"
+            />
+
+        <ImageView
+            android:id="@+id/imgOrigin"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:layout_constraintStart_toStartOf="@id/guideLineTextCampStart"
+            app:layout_constraintTop_toBottomOf="@id/imgLocation"
+            android:src="@drawable/ic_origen"
+            android:layout_marginStart="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tvOrigin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@id/imgOrigin"
+            app:layout_constraintStart_toEndOf="@id/imgOrigin"
+            app:layout_constraintBottom_toBottomOf="@id/imgOrigin"
+            tools:text="Lova"
             android:layout_marginStart="8dp"
             />
 

@@ -6,11 +6,13 @@ import androidx.room.RoomDatabase
 import com.devdroid.rickandmortyapp.data.local.dao.CharacterDao
 import com.devdroid.rickandmortyapp.data.local.entities.CharacterEntity
 import com.devdroid.rickandmortyapp.data.local.entities.LocationEntity
+import com.devdroid.rickandmortyapp.data.local.entities.OriginEntity
 
 @Database(
     entities = [
         CharacterEntity::class,
-        LocationEntity::class
+        LocationEntity::class,
+        OriginEntity::class
     ],
     version = 1,
     exportSchema = false
