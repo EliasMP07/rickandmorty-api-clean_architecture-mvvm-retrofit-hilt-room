@@ -7,4 +7,6 @@ interface RickAndMortyRepository {
 
     suspend fun getCharacterOffline(): List<CharacterItem>
     suspend fun getUrlCharacters(): List<CharacterItem>
+
+    suspend fun getCharacterById(id: Int): CharacterItem
 }

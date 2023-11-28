@@ -58,5 +58,10 @@ class RickAndMortyReposityImp @Inject constructor(
         }
     }
 
+    override suspend fun getCharacterById(id: Int): CharacterItem {
+
+        return dao.getCharacterById(id).toDomain() ?: throw Exception("Character not found")
+    }
+
 
 }

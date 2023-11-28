@@ -9,5 +9,22 @@
         android:id="@+id/characterFragment"
         android:name="com.devdroid.rickandmortyapp.iu.Character.view.CharacterFragment"
         android:label="fragment_character"
-        tools:layout="@layout/fragment_character" />
+        tools:layout="@layout/fragment_character" >
+        <action
+            android:id="@+id/action_characterFragment_to_characterDetailActivity"
+            app:destination="@id/characterDetailActivity"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <activity
+        android:id="@+id/characterDetailActivity"
+        android:name="com.devdroid.rickandmortyapp.iu.characterDetail.view.CharacterDetailActivity"
+        android:label="activity_character_detail"
+        tools:layout="@layout/activity_character_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </activity>
 </navigation>

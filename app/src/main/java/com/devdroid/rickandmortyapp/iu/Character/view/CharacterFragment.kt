@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devdroid.rickandmortyapp.R
 import com.devdroid.rickandmortyapp.databinding.FragmentCharacterBinding
@@ -71,7 +72,9 @@ class CharacterFragment : Fragment() {
 
             layoutManager = LinearLayoutManager(requireContext())
             adapter = CharacterAdapter(onItemSelected = {
-                Toast.makeText(context, "Hola Funciono", Toast.LENGTH_LONG).show()
+                findNavController().navigate(
+                    CharacterFragmentDirections.actionCharacterFragmentToCharacterDetailActivity(it.id!!)
+                )
             })
         }
 

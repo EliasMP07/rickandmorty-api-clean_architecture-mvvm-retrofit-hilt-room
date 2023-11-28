@@ -8,4 +8,6 @@
     <color name="backgroundCardView">#00A5FE</color>
 
     <color name="textColor">#ffdd00</color>
+
+    <color name="buttom_navigation_color">#e8493b</color>
 </resources>

@@ -15,6 +15,10 @@ interface CharacterDao {
     @Query("SELECT Count(id) FROM character_table")
     suspend fun countCharacter(): Int
 
+
+    @Query("SELECT * FROM character_table WHERE id = :id")
+    suspend fun getCharacterById(id: Int): CharacterEntity
+
     @Query("SELECT * FROM character_table")
     suspend fun getAllCharacterAndLocation(): List<CharacterLocationaAndOrigin>
 
