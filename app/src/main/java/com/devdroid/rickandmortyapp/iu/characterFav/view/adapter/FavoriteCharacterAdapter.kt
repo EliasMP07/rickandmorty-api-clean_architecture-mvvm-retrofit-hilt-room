@@ -1,9 +1,9 @@
-package com.devdroid.rickandmortyapp.iu.Character.view.adapter
-
+package com.devdroid.rickandmortyapp.iu.characterFav.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,10 +13,8 @@ import com.devdroid.rickandmortyapp.R
 import com.devdroid.rickandmortyapp.databinding.ItemCharacterBinding
 import com.devdroid.rickandmortyapp.domain.model.CharacterItem
 
-class CharacterAdapter(
-    private val onItemSelected:(CharacterItem) -> Unit,
-    private val onFavoriteSelected:(CharacterItem) -> Unit
-) : ListAdapter<CharacterItem, CharacterAdapter.CharacterViewHolder>(DiffCallBack){
+class FavoriteCharacterAdapter(
+) : ListAdapter<CharacterItem,FavoriteCharacterAdapter.CharacterViewHolder>(DiffCallBack){
 
 
 
@@ -33,7 +31,7 @@ class CharacterAdapter(
 
     inner class CharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(character: CharacterItem, onItemSelected: (CharacterItem) -> Unit, onFavoriteSelected: (CharacterItem) -> Unit) {
+        fun bind(character: CharacterItem) {
 
 
 
@@ -61,17 +59,12 @@ class CharacterAdapter(
                         ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_gender_unknown)
                     }
                 }
-                cbFavorite.isChecked = character.favorite
+                cbFavorite.isVisible = false
                 tvLocation.text = character.location?.name
 
                 tvOrigin.text = character.origin?.name
 
-                parent.setOnClickListener {
-                    onItemSelected(character)
-                }
-                cbFavorite.setOnClickListener {
-                    onFavoriteSelected(character)
-                }
+
             }
         }
 
@@ -92,7 +85,7 @@ class CharacterAdapter(
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bind(
-            getItem(position), onItemSelected, onFavoriteSelected
+            getItem(position)
         )
     }
 

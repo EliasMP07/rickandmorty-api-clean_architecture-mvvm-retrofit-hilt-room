@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/ivBack"
         android:layout_width="wrap_content"
@@ -49,13 +50,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4" />
+
+
             <TextView
+                android:layout_marginTop="8dp"
                 android:id="@+id/tvNameCharacter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Rick Sanchez"
                 android:textColor="@color/textColor"
-                android:textSize="32sp"
+                android:textSize="34sp"
                 android:fontFamily="@font/bebasneue_regular"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +88,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/bebasneue_regular"
                 app:layout_constraintTop_toBottomOf="@id/imgCharacter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -86,15 +98,31 @@
 
                 />
 
+
+            <TextView
+                android:id="@+id/tvStatusCharacterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_status_character_label"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/bebasneue_regular"
+                app:layout_constraintTop_toBottomOf="@id/guideLine"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
             <ImageView
                 android:id="@+id/imgStatusCharacter"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 tools:src="@drawable/ic_live"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSpecieCharacter"
+                app:layout_constraintTop_toBottomOf="@id/tvStatusCharacterLabel"
                 android:layout_marginStart="8dp"
                 />
+
 
 
 
@@ -103,21 +131,37 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="24sp"
-                app:layout_constraintTop_toTopOf="@id/imgStatusCharacter"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/tvStatusCharacterLabel"
                 app:layout_constraintStart_toEndOf="@id/imgStatusCharacter"
                 app:layout_constraintBottom_toBottomOf="@id/imgStatusCharacter"
                 tools:text="Vivo"
+                android:fontFamily="@font/bebasneue_regular"
                 android:layout_marginStart="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvGenderCharacterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_gender_character_label"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/bebasneue_regular"
+                app:layout_constraintTop_toBottomOf="@id/imgStatusCharacter"
+                app:layout_constraintStart_toStartOf="parent"
                 />
 
             <ImageView
                 android:id="@+id/imgGenderCharacter"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 tools:src="@drawable/ic_female"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgStatusCharacter"
+                app:layout_constraintTop_toBottomOf="@id/tvGenderCharacterLabel"
+                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
                 />
 
@@ -126,7 +170,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/bebasneue_regular"
                 app:layout_constraintTop_toTopOf="@id/imgGenderCharacter"
                 app:layout_constraintStart_toEndOf="@id/imgGenderCharacter"
                 app:layout_constraintBottom_toBottomOf="@id/imgGenderCharacter"
@@ -134,37 +179,70 @@
                 android:layout_marginStart="8dp"
                 />
 
+            <TextView
+                android:id="@+id/tvLocationCharacterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_location_character_label"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/bebasneue_regular"
+                app:layout_constraintTop_toBottomOf="@id/imgGenderCharacter"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
             <ImageView
                 android:id="@+id/imgLocationCharacter"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgGenderCharacter"
+                app:layout_constraintTop_toBottomOf="@id/tvLocationCharacterLabel"
                 android:src="@drawable/ic_location"
+                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
                 />
+
 
             <TextView
                 android:id="@+id/tvLocationCharacter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
+                android:fontFamily="@font/bebasneue_regular"
                 app:layout_constraintTop_toTopOf="@id/imgLocationCharacter"
                 app:layout_constraintStart_toEndOf="@id/imgLocationCharacter"
                 app:layout_constraintBottom_toBottomOf="@id/imgLocationCharacter"
                 tools:text="Lova"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:layout_marginStart="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvOriginCharacterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_origin_character_label"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/bebasneue_regular"
+                app:layout_constraintTop_toBottomOf="@id/imgLocationCharacter"
+                app:layout_constraintStart_toStartOf="parent"
                 />
 
             <ImageView
                 android:id="@+id/imgOriginCharacter"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgLocationCharacter"
+                app:layout_constraintTop_toBottomOf="@id/tvOriginCharacterLabel"
+
                 android:src="@drawable/ic_origen"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 />
 
             <TextView
@@ -172,13 +250,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                android:textSize="24sp"
+                android:textSize="16sp"
+                android:fontFamily="@font/bebasneue_regular"
                 app:layout_constraintTop_toTopOf="@id/imgOriginCharacter"
                 app:layout_constraintStart_toEndOf="@id/imgOriginCharacter"
                 app:layout_constraintBottom_toBottomOf="@id/imgOriginCharacter"
                 tools:text="Lova"
                 android:layout_marginStart="8dp"
                 />
+            <TextView
+                android:id="@+id/tvTypeCharacterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_type_character_label"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/bebasneue_regular"
+                app:layout_constraintTop_toBottomOf="@id/imgOriginCharacter"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <ImageView
+                android:id="@+id/imgTypeCharacter"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTypeCharacterLabel"
+                android:src="@drawable/ic_type"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                />
+
+            <TextView
+                android:id="@+id/tvTypeCharacter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:fontFamily="@font/bebasneue_regular"
+                app:layout_constraintTop_toTopOf="@id/imgTypeCharacter"
+                app:layout_constraintStart_toEndOf="@id/imgTypeCharacter"
+                app:layout_constraintBottom_toBottomOf="@id/imgTypeCharacter"
+                tools:text="Lova"
+                android:layout_marginStart="8dp"
+                />
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

@@ -27,4 +27,9 @@
             android:name="id"
             app:argType="integer" />
     </activity>
+    <fragment
+        android:id="@+id/favoriteCharacterFragment"
+        android:name="com.devdroid.rickandmortyapp.iu.characterFav.view.FavoriteCharacterFragment"
+        android:label="fragment_favorite_character"
+        tools:layout="@layout/fragment_favorite_character" />
 </navigation>

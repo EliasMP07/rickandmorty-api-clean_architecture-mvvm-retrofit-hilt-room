@@ -43,7 +43,7 @@ android {
 
 dependencies {
 
-    val navVersion = "2.7.1"
+    val navVersion = "2.7.5"
     //NavComponent
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
@@ -61,9 +61,9 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
 
     // Fragment
-    implementation( "androidx.fragment:fragment-ktx:1.6.1")
+    implementation( "androidx.fragment:fragment-ktx:1.6.2")
     // Activity
-    implementation ("androidx.activity:activity-ktx:1.8.0")
+    implementation ("androidx.activity:activity-ktx:1.8.1")
     // ViewModel
     implementation( "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     // LiveData
@@ -86,6 +86,8 @@ dependencies {
     kapt("com.github.bumptech.glide:compiler:4.12.0")
 
 
+    //SplashScreen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

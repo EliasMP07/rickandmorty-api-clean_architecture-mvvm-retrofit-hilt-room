@@ -1,9 +1,11 @@
 package com.devdroid.rickandmortyapp.iu.utils
 
 import android.content.Context
+import android.view.View
 import android.widget.Toast
 import com.devdroid.rickandmortyapp.RickAndMortyApp
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 object UtilsMessage {
 
@@ -21,6 +23,14 @@ object UtilsMessage {
             RickAndMortyApp.getContext(),
             mensaje,
             Toast.LENGTH_LONG
+        ).show()
+    }
+
+    fun showSnackBac(mensaje: String, view: View){
+        Snackbar.make(
+            view,
+            mensaje,
+            Snackbar.LENGTH_SHORT
         ).show()
     }
 

@@ -10,4 +10,6 @@ interface RickAndMortyApiClient {
 
     @GET("character")
     suspend fun obtenerCharacter(): Response<CharacterResult>
+
+
 }

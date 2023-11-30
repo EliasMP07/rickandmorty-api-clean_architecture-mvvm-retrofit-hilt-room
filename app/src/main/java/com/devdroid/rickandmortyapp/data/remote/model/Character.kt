@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 
 data class Character(
-    @SerializedName("create")val created: String?,
     @SerializedName("gender")val gender: String?,
     @SerializedName("id")val id: Int,
     @SerializedName("image")val image: String?,
@@ -14,6 +13,5 @@ data class Character(
     @SerializedName("location") val location: Location?,
     @SerializedName("status") val status: String?,
     @SerializedName("type") val type: String?,
-    @SerializedName("url") val url: String?
 )
 

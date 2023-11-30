@@ -2,4 +2,9 @@
     <string name="app_name">Rick and Morty App</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_status_character_label">Status:</string>
+    <string name="tv_gender_character_label">Gender:</string>
+    <string name="tv_location_character_label">"Location: "</string>
+    <string name="tv_origin_character_label">"Origin: "</string>
+    <string name="tv_type_character_label">Type:</string>
 </resources>

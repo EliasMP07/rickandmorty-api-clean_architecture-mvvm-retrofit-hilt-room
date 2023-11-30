@@ -10,4 +10,8 @@
     <color name="textColor">#ffdd00</color>
 
     <color name="buttom_navigation_color">#e8493b</color>
+
+    <color name="colorTextCardView">#e74d3c</color>
+
+    <color name="backgroundSplashScreen">#3F3F3F</color>
 </resources>

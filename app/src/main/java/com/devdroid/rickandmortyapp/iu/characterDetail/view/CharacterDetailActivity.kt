@@ -87,6 +87,7 @@ class CharacterDetailActivity : AppCompatActivity() {
 
             tvOriginCharacter.text = it.data.origin?.name
             tvNameCharacter.text = it.data.name
+            tvTypeCharacter.text = it.data.type
         }
     }
 

@@ -60,7 +60,29 @@ class RickAndMortyReposityImp @Inject constructor(
 
     override suspend fun getCharacterById(id: Int): CharacterItem {
 
-        return dao.getCharacterById(id).toDomain() ?: throw Exception("Character not found")
+        val characterLocationAndOrigin = dao.getCharacterById(id)
+
+        return characterLocationAndOrigin.character.toDomain().apply {
+            origin = characterLocationAndOrigin.origin.toDomain()
+            location = characterLocationAndOrigin.location.toDomain()
+        }
+
+    }
+
+    override suspend fun updateFavoriteCharacter(character: CharacterItem) {
+        dao.updateFavoriteCharacter(character.toDatabase())
+    }
+
+    override suspend fun getAllFavoritesCharacter(): List<CharacterItem> {
+        val listCharacters = mutableListOf<CharacterItem>()
+
+        dao.getFavoritesCharacter().forEach {
+            val entity = it.character.toDomain()
+            entity.origin = it.origin.toDomain()
+            entity.location = it.location.toDomain()
+            listCharacters.add(entity)
+        }
+        return listCharacters
     }
 
 

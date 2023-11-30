@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
+import androidx.room.Update
 import com.devdroid.rickandmortyapp.data.local.entities.CharacterLocationaAndOrigin
 import com.devdroid.rickandmortyapp.data.local.entities.CharacterEntity
 import com.devdroid.rickandmortyapp.data.local.entities.LocationEntity
@@ -15,9 +16,13 @@ interface CharacterDao {
     @Query("SELECT Count(id) FROM character_table")
     suspend fun countCharacter(): Int
 
+    @Query("SELECT * FROM character_table where favorite = 1")
+    suspend fun getFavoritesCharacter(): List<CharacterLocationaAndOrigin>
+    @Update
+    suspend fun updateFavoriteCharacter(character: CharacterEntity)
 
     @Query("SELECT * FROM character_table WHERE id = :id")
-    suspend fun getCharacterById(id: Int): CharacterEntity
+    suspend fun getCharacterById(id: Int): CharacterLocationaAndOrigin
 
     @Query("SELECT * FROM character_table")
     suspend fun getAllCharacterAndLocation(): List<CharacterLocationaAndOrigin>

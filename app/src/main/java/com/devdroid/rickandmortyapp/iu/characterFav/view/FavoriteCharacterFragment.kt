@@ -1,4 +1,4 @@
-package com.devdroid.rickandmortyapp.iu.Character.view
+package com.devdroid.rickandmortyapp.iu.characterFav.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,34 +10,35 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devdroid.rickandmortyapp.R
-import com.devdroid.rickandmortyapp.databinding.FragmentCharacterBinding
+import com.devdroid.rickandmortyapp.databinding.FragmentFavoriteCharacterBinding
+import com.devdroid.rickandmortyapp.iu.Character.view.CharacterFragmentDirections
 import com.devdroid.rickandmortyapp.iu.Character.view.adapter.CharacterAdapter
-import com.devdroid.rickandmortyapp.iu.Character.viewModel.CharacterViewModel
+import com.devdroid.rickandmortyapp.iu.characterFav.view.adapter.FavoriteCharacterAdapter
+import com.devdroid.rickandmortyapp.iu.characterFav.viewModel.FavoriteCharacterViewModel
 import com.devdroid.rickandmortyapp.iu.utils.ResponseStatus
-import com.devdroid.rickandmortyapp.iu.utils.UtilsMessage
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class CharacterFragment : Fragment() {
+class FavoriteCharacterFragment : Fragment() {
 
-    private var _binding: FragmentCharacterBinding? = null
+
+    private var _binding: FragmentFavoriteCharacterBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel : CharacterViewModel by viewModels()
-
+    private val viewModel: FavoriteCharacterViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCharacterBinding.inflate(layoutInflater, container, false)
+        // Inflate the layout for this fragment
+       _binding = FragmentFavoriteCharacterBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-         initIU()
+        initIU()
     }
 
     private fun initIU() {
@@ -47,13 +48,13 @@ class CharacterFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getAllCharacter()
+        viewModel.getAllFavoriteCharacter()
 
     }
     private fun initIUState() {
 
         viewModel.listCharacter.observe(viewLifecycleOwner){
-            (binding.rvCharacter.adapter as CharacterAdapter).submitList(it)
+            (binding.rvCharacterFavorite.adapter as FavoriteCharacterAdapter).submitList(it)
         }
 
 
@@ -69,24 +70,12 @@ class CharacterFragment : Fragment() {
     private fun initList() {
 
 
-        binding.rvCharacter.apply {
+        binding.rvCharacterFavorite.apply {
 
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = CharacterAdapter(onItemSelected = {
-                findNavController().navigate(
-                    CharacterFragmentDirections.actionCharacterFragmentToCharacterDetailActivity(it.id!!)
-                )
-            }, onFavoriteSelected ={
-                viewModel.onClickFavorite(it.id!!)
-                if (!it.favorite){
-                    UtilsMessage.showSnackBac("Se agregado a favorito a ${it.name}", this)
-                }else{
-                    UtilsMessage.showSnackBac("Se ha quitado de favorito a ${it.name}", this)
-                }
-            })
+            adapter = FavoriteCharacterAdapter()
         }
 
     }
-
 
 }

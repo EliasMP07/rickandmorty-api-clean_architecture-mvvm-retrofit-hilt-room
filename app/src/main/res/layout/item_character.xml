@@ -16,6 +16,15 @@
         android:background="@color/backgroundCardView"
         >
 
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/states_cb_favorite"
+            android:buttonTint="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <!-- Guidelines para diseño de los campos de texto-->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideLineTextCampStart"
@@ -58,19 +67,10 @@
            android:textSize="24sp"
            app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintBottom_toBottomOf="@id/guideLine2"
            android:layout_marginTop="8dp"
            />
-        <TextView
-            android:id="@+id/tvSpecie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/tvName"
-            app:layout_constraintStart_toStartOf="@id/tvName"
-            app:layout_constraintEnd_toEndOf="@id/tvName"
-            tools:text="Human"
 
-            />
 
         <ImageView
             android:id="@+id/imgStatus"
@@ -88,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
+            android:fontFamily="@font/bebasneue_regular"
             app:layout_constraintTop_toTopOf="@id/imgStatus"
             app:layout_constraintStart_toEndOf="@id/imgStatus"
             app:layout_constraintBottom_toBottomOf="@id/imgStatus"
@@ -113,6 +114,7 @@
             app:layout_constraintStart_toEndOf="@id/imgGender"
             app:layout_constraintBottom_toBottomOf="@id/imgGender"
             tools:text="Female"
+            android:fontFamily="@font/bebasneue_regular"
             android:layout_marginStart="8dp"
             />
 
@@ -135,6 +137,7 @@
             app:layout_constraintStart_toEndOf="@id/imgLocation"
             app:layout_constraintBottom_toBottomOf="@id/imgLocation"
             tools:text="Lova"
+            android:fontFamily="@font/bebasneue_regular"
             android:layout_marginStart="8dp"
             />
 
@@ -153,6 +156,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
+            android:fontFamily="@font/bebasneue_regular"
             app:layout_constraintTop_toTopOf="@id/imgOrigin"
             app:layout_constraintStart_toEndOf="@id/imgOrigin"
             app:layout_constraintBottom_toBottomOf="@id/imgOrigin"

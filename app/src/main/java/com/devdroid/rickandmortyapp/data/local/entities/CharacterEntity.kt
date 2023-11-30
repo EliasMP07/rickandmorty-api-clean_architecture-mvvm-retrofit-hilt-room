@@ -4,11 +4,15 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.devdroid.rickandmortyapp.data.remote.model.Character
+import com.devdroid.rickandmortyapp.domain.model.CharacterItem
 
-@Entity(tableName = "character_table")
+@Entity(
+    tableName = "character_table"
+
+    )
 data class CharacterEntity(
-    @ColumnInfo("created")var created: String? = "",
     @ColumnInfo("gender")var gender: String? = "",
     @PrimaryKey (autoGenerate = true)
     @ColumnInfo("id") var id: Int? = 0,
@@ -17,11 +21,20 @@ data class CharacterEntity(
     @ColumnInfo("species")var species: String? = "",
     @ColumnInfo("status") var status: String? = "",
     @ColumnInfo("type")var type: String? = "",
-    @ColumnInfo("url")var url: String? = ""
+    @ColumnInfo("favorite")var favorite: Boolean = false
+
 )
 
 fun Character.toDatabase() = CharacterEntity(
-    created = created,
+    gender = gender,
+    id = id,
+    image = image,
+    name = name,
+    species = species,
+    status = status,
+    type = type)
+
+fun CharacterItem.toDatabase() = CharacterEntity(
     gender = gender,
     id = id,
     image = image,
@@ -29,5 +42,6 @@ fun Character.toDatabase() = CharacterEntity(
     species = species,
     status = status,
     type = type,
-    url = url
+    favorite = favorite
+
 )
