@@ -27,12 +27,11 @@ Mediante esta app se consumira la api de Rick and Morty, se mostrara la lista de
 - di: Contiene el modulo de inyección de dependencia.
 - utils: Contiene las clases para el manejo de los estados de respuesta, mensajes, etc.
 
-- 
 
 ## Resultado del endpoint
 De todo el resultado obtenido del endpoint, estos serán los campos que manejaremos.
 
-![Image text](https://github.com/programadorescs/ApiRestUnsplash/blob/master/app/src/main/assets/respuesta_json.png)
+![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/endpoint.png)
 
 ## Estructura de la app
 ![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/structureProject.png)
