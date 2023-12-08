@@ -1,4 +1,4 @@
-# Consumo de la Api Unsplash usando Retrofit, ROOM, patrón MVVM e inyección de dependencia con Dagger Hilt
+# Consumo de la Api Rick and Morty usando Clean Architecture, MVVM, Retrofit, Hilt, Room, Coroutines, Navigation, Material Design, Glide, etc.
 Mediante esta app se consumira la api de Rick and Morty, se mostrara la lista de personajes, se podra agregar a favoritos y se podra ver los personajes agregados a favoritos.
 ## Requisitos
 
