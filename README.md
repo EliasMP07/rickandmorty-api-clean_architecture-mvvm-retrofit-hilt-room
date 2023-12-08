@@ -1,10 +1,8 @@
 # Consumo de la Api Unsplash usando Retrofit, ROOM, patrón MVVM e inyección de dependencia con Dagger Hilt
-Mediante este ejemplo accederemos a la api de Unsplash, la particularidad de este endpoint es que la api_key esta al final de la misma url, para ello haremos uso los Interceptor para agregar dicha api_key. El resultado obtenido de la api será almacenado en ROOM.
-
+Mediante esta app se consumira la api de Rick and Morty, se mostrara la lista de personajes, se podra agregar a favoritos y se podra ver los personajes agregados a favoritos.
 ## Requisitos
 
-- Android Studio Giraffe | 2022.3.1 Patch 4 o superior.
-- Android Gradle Plugin Version 8.1.4
+- Android Studio Arctic Fox | 2020.3.1 Patch 3
 - Gradle Version 8.0
 - Kotlin 1.9.10 o superior.
 
@@ -37,7 +35,7 @@ De todo el resultado obtenido del endpoint, estos serán los campos que manejare
 ![Image text](https://github.com/programadorescs/ApiRestUnsplash/blob/master/app/src/main/assets/respuesta_json.png)
 
 ## Estructura de la app
-![Image text](https://github.com/programadorescs/ApiRestUnsplash/blob/master/app/src/main/assets/estructura_app.png)
+![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/structureProject.png)
 
 ## Imagen de la app
 
