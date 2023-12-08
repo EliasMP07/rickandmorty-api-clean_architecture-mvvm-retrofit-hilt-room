@@ -41,14 +41,12 @@ De todo el resultado obtenido del endpoint, estos serán los campos que manejare
 
 ## Imagen de la app
 
-### Home
-![Image text](
+### Home App
+![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/home.jpg)
 
 ### Registrar una nueva cuenta
 ![Image text](https://github.com/programadorescs/ApiRestUnsplash/blob/master/app/src/main/assets/api_cuenta.png)
 
-### Datos de la api
-![Image text](https://github.com/programadorescs/ApiRestUnsplash/blob/master/app/src/main/assets/pantalla_01.png)
 
 ### Info de la app
 ![Image text](https://github.com/programadorescs/ApiRestUnsplash/blob/master/app/src/main/assets/api_info.png)
