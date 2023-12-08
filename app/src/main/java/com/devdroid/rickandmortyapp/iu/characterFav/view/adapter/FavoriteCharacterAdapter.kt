@@ -14,6 +14,7 @@ import com.devdroid.rickandmortyapp.databinding.ItemCharacterBinding
 import com.devdroid.rickandmortyapp.domain.model.CharacterItem
 
 class FavoriteCharacterAdapter(
+    private val onItemSelected:(CharacterItem) -> Unit
 ) : ListAdapter<CharacterItem,FavoriteCharacterAdapter.CharacterViewHolder>(DiffCallBack){
 
 
@@ -31,7 +32,7 @@ class FavoriteCharacterAdapter(
 
     inner class CharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(character: CharacterItem) {
+        fun bind(character: CharacterItem, onItemSelected: (CharacterItem) -> Unit) {
 
 
 
@@ -59,6 +60,7 @@ class FavoriteCharacterAdapter(
                         ContextCompat.getDrawable(this@CharacterViewHolder.itemView.context, R.drawable.ic_gender_unknown)
                     }
                 }
+                parent.setOnClickListener { onItemSelected(character) }
                 cbFavorite.isVisible = false
                 tvLocation.text = character.location?.name
 
@@ -85,7 +87,8 @@ class FavoriteCharacterAdapter(
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         holder.bind(
-            getItem(position)
+            getItem(position),
+            onItemSelected = onItemSelected
         )
     }
 

@@ -69,9 +69,7 @@ class RickAndMortyReposityImp @Inject constructor(
 
     }
 
-    override suspend fun updateFavoriteCharacter(character: CharacterItem) {
-        dao.updateFavoriteCharacter(character.toDatabase())
-    }
+
 
     override suspend fun getAllFavoritesCharacter(): List<CharacterItem> {
         val listCharacters = mutableListOf<CharacterItem>()

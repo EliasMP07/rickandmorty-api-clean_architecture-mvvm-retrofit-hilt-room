@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.devdroid.rickandmortyapp.data.local.dao.CharacterDao
+import com.devdroid.rickandmortyapp.data.local.entities.toDatabase
 import com.devdroid.rickandmortyapp.domain.model.CharacterItem
 import com.devdroid.rickandmortyapp.domain.usecase.getListRickAndMortyUseCase
-import com.devdroid.rickandmortyapp.domain.usecase.updateFavoriteCharacter
 import com.devdroid.rickandmortyapp.iu.utils.ResponseStatus
 import com.devdroid.rickandmortyapp.iu.utils.makeCall
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,7 +20,7 @@ import javax.inject.Inject
 class CharacterViewModel @Inject constructor(
 
     private val getListRickAndMortyUseCase: getListRickAndMortyUseCase,
-    private val updateFavoriteCharacter: updateFavoriteCharacter
+    private val dao: CharacterDao
 ) : ViewModel(){
 
     private val _listCharacter = MutableLiveData<List<CharacterItem>?>()
@@ -33,7 +34,7 @@ class CharacterViewModel @Inject constructor(
             _listCharacter.value?.forEach {
                 if (it.id == id){
                     it.favorite = !it.favorite
-                    updateFavoriteCharacter(it)
+                    dao.updateFavoriteCharacter(it.toDatabase())
                 }
             }
         }

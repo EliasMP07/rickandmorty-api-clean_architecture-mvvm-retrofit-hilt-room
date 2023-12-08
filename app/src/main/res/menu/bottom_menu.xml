@@ -4,7 +4,7 @@
     <item
         android:id="@+id/characterFragment"
         android:title="Personajes"
-        android:icon="@drawable/ic_character"
+        android:icon="@drawable/character_ic"
         />
 
     <item

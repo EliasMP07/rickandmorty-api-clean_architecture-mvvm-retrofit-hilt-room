@@ -47,7 +47,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:itemActiveIndicatorStyle="@null"
+        app:itemIconTint="@color/bottom_nav_selector"
+        app:itemTextColor="@color/bottom_nav_selector"
         app:menu="@menu/bottom_menu"
+        android:background="@color/primaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

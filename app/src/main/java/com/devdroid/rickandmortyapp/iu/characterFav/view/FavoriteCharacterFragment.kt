@@ -73,7 +73,11 @@ class FavoriteCharacterFragment : Fragment() {
         binding.rvCharacterFavorite.apply {
 
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = FavoriteCharacterAdapter()
+            adapter = FavoriteCharacterAdapter(onItemSelected = {
+                findNavController().navigate(
+                    FavoriteCharacterFragmentDirections.actionFavoriteCharacterFragmentToCharacterDetailActivity(it.id!!)
+                )
+            })
         }
 
     }

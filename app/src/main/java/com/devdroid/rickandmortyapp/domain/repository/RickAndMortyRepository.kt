@@ -10,7 +10,6 @@ interface RickAndMortyRepository {
 
     suspend fun getCharacterById(id: Int): CharacterItem
 
-    suspend fun updateFavoriteCharacter(character: CharacterItem)
 
     suspend fun getAllFavoritesCharacter(): List<CharacterItem>
 }

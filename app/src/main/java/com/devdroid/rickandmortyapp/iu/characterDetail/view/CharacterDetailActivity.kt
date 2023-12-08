@@ -58,7 +58,6 @@ class CharacterDetailActivity : AppCompatActivity() {
     }
 
     private fun successState(it: ResponseStatus.Success<CharacterItem>) {
-        Toast.makeText(this,"${it.data.name}",Toast.LENGTH_SHORT).show()
 
         Glide.with(this)
             .load(it.data.image)

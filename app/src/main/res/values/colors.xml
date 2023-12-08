@@ -14,4 +14,6 @@
     <color name="colorTextCardView">#e74d3c</color>
 
     <color name="backgroundSplashScreen">#3F3F3F</color>
+
+    <color name="secondary">#e74d3c</color>
 </resources>
