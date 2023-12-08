@@ -33,6 +33,9 @@ De todo el resultado obtenido del endpoint, estos serán los campos que manejare
 
 ![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/endpoint.png)
 
+## Demostración de la app
+![Video text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/demostrationApp.mp4)
+
 ## Estructura de la app
 ![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/structureProject.png)
 
@@ -43,6 +46,10 @@ De todo el resultado obtenido del endpoint, estos serán los campos que manejare
 
 ### Home
 ![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/home.jpg)
+
+### Detail Screen
+
+![Image text](
 
 ### Favorite Screen
 ![Image text](https://github.com/EliasMP07/rickandmorty-api-clean_architecture-mvvm-retrofit-hilt-room/blob/main/app/src/main/assets/favoritescreen.jpg)
