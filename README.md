@@ -2,7 +2,7 @@
 Mediante esta app se consumira la api de Rick and Morty, se mostrara la lista de personajes, se podra agregar a favoritos y se podra ver los personajes agregados a favoritos.
 ## Requisitos
 
-- Android Studio Arctic Fox | 2020.3.1 Patch 3
+- Android Studio Jirafa| 2023.3.1 Patch 3
 - Gradle Version 8.0
 - Kotlin 1.9.10 o superior.
 
