@@ -91,7 +91,9 @@ class CharacterDetailActivity : AppCompatActivity() {
     }
 
     private fun initListeners() {
-         binding.ivBack.setOnClickListener { onBackPressed() }
+        binding.topAppBar.setNavigationOnClickListener {
+            onBackPressed()
+        }
     }
 
 

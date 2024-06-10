@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         val screenSplash = installSplashScreen()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         initUi()
     }
 

@@ -18,7 +18,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterViewModel @Inject constructor(
-
     private val getListRickAndMortyUseCase: getListRickAndMortyUseCase,
     private val dao: CharacterDao
 ) : ViewModel(){
@@ -42,15 +41,11 @@ class CharacterViewModel @Inject constructor(
     fun getAllCharacter(){
         viewModelScope.launch {
             _stateList.value = ResponseStatus.Loading()
-
-
             makeCall {
                 getListRickAndMortyUseCase()
             }.let {
                 if (it is ResponseStatus.Success)
                     _listCharacter.value = it.data
-
-
                 _stateList.value = it
             }
         }

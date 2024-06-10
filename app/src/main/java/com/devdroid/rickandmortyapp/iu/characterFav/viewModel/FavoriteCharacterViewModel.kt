@@ -27,8 +27,6 @@ class FavoriteCharacterViewModel @Inject constructor(
     fun getAllFavoriteCharacter(){
         viewModelScope.launch {
             _stateList.value = ResponseStatus.Loading()
-
-
             makeCall {
                 getAllCharacterFavorites()
             }.let {
